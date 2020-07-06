@@ -44,8 +44,6 @@ class Trie:
             root = None
         return root
 
-
-
 if __name__ == '__main__':
     trie = Trie()
     keys = ["the", "a", "there", "answer", "any", "by", "bye", "their"]
