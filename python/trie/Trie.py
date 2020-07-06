@@ -9,7 +9,7 @@ class Trie:
         for ind in range(length):
             try:
                 current = current.children[key[ind]]
-            except:
+            except(Exception ex):
                 new_trie_node = TrieNode()
                 current.children[key[ind]] = new_trie_node
                 current = new_trie_node
@@ -22,7 +22,7 @@ class Trie:
             if(key[ind] not in current.children):
                 return False
             current = current.children[key[ind]]
-        return (current != None and current.is_end_of_word)
+        return (not(current is None) and current.is_end_of_word)
 
     def remove(self, key):
         return self.removeUtil(self.root, key, 0)
@@ -34,10 +34,10 @@ class Trie:
         if(deapth == len(key)):
             if(root.is_end_of_word):
                 root.is_end_of_word = False
-            if(len(root.children)):
+            if(len(root.children) == 0):
                 root = None
             return root
-            
+
         root.children[key[deapth]] = self.removeUtil(root.children[key[deapth]], key, deapth+1)
 
         if(len(root.children) == 0 and not root.is_end_of_word):
