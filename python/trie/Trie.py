@@ -9,7 +9,7 @@ class Trie:
         for ind in range(length):
             try:
                 current = current.children[key[ind]]
-            except(Exception ex):
+            except Exception:
                 new_trie_node = TrieNode()
                 current.children[key[ind]] = new_trie_node
                 current = new_trie_node
