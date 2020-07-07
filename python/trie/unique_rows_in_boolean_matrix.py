@@ -8,7 +8,7 @@ class UniqueRow(Trie):
         new_entry = False
         for i in key:
             if(i not in current.children):
-                new_entry = Trie
+                new_entry = True
                 current.children[i] = TrieNode()
             current = current.children[i]        
         if(not(not new_entry and current.is_end_of_word)):
